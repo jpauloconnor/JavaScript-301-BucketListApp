@@ -4,6 +4,6 @@ module.exports = function(app){
 	});
 
 	app.get('/signup', function(req, res, next){
-		res.send("Hey folks, Thansk for signing up!");		
+		res.send("Hey folks, Thanks for signing up!");		
 	});
 }
