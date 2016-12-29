@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = new Schema({
 		email: {
@@ -8,6 +9,22 @@ var userSchema = new Schema({
 		lowercase: true
 	},
 		password: String
+});
+
+//Encrypt password after saving
+userSchema.pre('save', function(next){
+	var user = this;
+
+	bcrypt.genSalt(10, function(err, salt){
+		if(err) { return next(err); }
+		
+		bcrypt.hash(user.password, salt, null, function(err, hash){
+			if (err) { return next(err); }
+		
+			user.password = hash;
+			next();
+		});
+	});
 });
 
 
