@@ -18,6 +18,7 @@ class ChildComponentsIntro extends React.Component {
         <p>Use the input field to see the state change.</p>
                 <p>{this.state.joke} is the greatest saxophone player of all time.</p>
                 <ChildComponent updateProps={this.changeStateCustomMethod.bind(this)} />
+                <hr>
       </div>
     );
   }
