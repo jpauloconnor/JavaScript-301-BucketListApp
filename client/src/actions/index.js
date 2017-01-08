@@ -3,7 +3,9 @@ import { browserHistory } from 'react-router';
 import { 
   AUTH_USER,
   UNAUTH_USER,
-  AUTH_ERROR 
+  AUTH_ERROR,
+  FETCH_MESSAGE
+
  } from './types';
 
 import authReducer from '../reducers/auth_reducer';
@@ -46,6 +48,19 @@ export function signupUser({ email, password }) {
   }
 }
 
+export function fetchMessage() {
+  return function(dispatch) {
+    axios.get(ROOT_URL, {
+      headers: { authorization: localStorage.getItem('token') }
+    })
+      .then(response => {
+        dispatch({
+          type: FETCH_MESSAGE,
+          payload: response.data.message
+        });
+      });
+  }
+}
 
 
 
