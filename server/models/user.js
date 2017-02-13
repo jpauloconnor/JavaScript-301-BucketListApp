@@ -3,10 +3,10 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
 		email: {
-		type: String, 
-		unique: true, 
-		lowercase: true
-	},
+			type: String, 
+			unique: true, 
+			lowercase: true
+		},
 		password: String
 });
 

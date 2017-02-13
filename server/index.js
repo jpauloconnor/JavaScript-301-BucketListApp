@@ -6,7 +6,7 @@ var router = require('./router');
 var mongoose = require('mongoose');
 
 //DB Connection
-mongoose.connect('mongodb://localhost:auth/mongotest');
+mongoose.connect('mongodb://localhost:bucket/mongoreact');
 
 app.use(bodyParser.json({ type: '*/*'}));
 router(app);
