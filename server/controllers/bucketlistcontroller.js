@@ -6,6 +6,7 @@ exports.addBucketList = function(req, res, next){
       // Authenticated Passport user as specificUser in BucketList model.
       bucketList.specificUser = req.user;
       // Save list item, plus add an error, if it fails
+      console.log(req.body);
       bucketList.save(function(err) {
         if(err) {
           return res.status(400).send({
