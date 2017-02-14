@@ -5,10 +5,17 @@ import {
   AUTH_USER,
   UNAUTH_USER
 } from '../actions/types';
+import todos from './todos';
+import visibilityFilter from './visibilityFilter';
+
+
 
 	const rootReducer = combineReducers({
   		form,
+  		todos,
+  		visibilityFilter,
   		auth: authReducer
+
 	});
 
 export default rootReducer;

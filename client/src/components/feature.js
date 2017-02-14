@@ -7,9 +7,17 @@ class Feature extends Component {
     this.props.fetchMessage();
   }
 
+   changeNameOne(event){
+    this.setState({message: event.target.value})
+  }
+
   render() {
     return (
-      <div>{this.props.message}</div>
+      <div>
+      <input type="text" onChange={this.changeNameOne.bind(this)}/>
+
+      {this.props.message}
+      </div>
     );
   }
 }
@@ -19,3 +27,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(Feature);
+
+
+       
+       
