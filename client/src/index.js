@@ -12,6 +12,9 @@ import Signup from './components/auth/signup';
 import Feature from './components/feature';
 import RequireAuth from './components/auth/require_auth'
 import reducers from './reducers';
+import PostsIndex from './components/posts-index';
+import PostsNew from './components/posts-new';
+import PostsShow from './components/posts-show';
 
 var createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
@@ -23,6 +26,9 @@ ReactDOM.render(
  				  <Route path="signout" component={Signout} />
   				<Route path="signup" component={Signup} />
   				<Route path="feature" component={RequireAuth(Feature)} />
+          <Route path="posts/index" component={RequireAuth(PostsIndex)} />
+          <Route path="posts/new" component={RequireAuth(PostsNew)} />
+          <Route path="posts/:id" component={RequireAuth(PostsShow)} />
   			</Route>
   		</Router>
   </Provider>
