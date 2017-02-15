@@ -7,9 +7,6 @@ class Feature extends Component {
     this.props.fetchMessage();
   }
 
-   changeNameOne(event){
-    this.setState({message: event.target.value})
-  }
 
   render() {
     return (

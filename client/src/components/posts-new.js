@@ -4,29 +4,27 @@ import { createPost } from '../actions/index';
 import { Link } from 'react-router';
 
 class PostsNew extends Component {
-	static contextTypes = {
-		router: PropTypes.object
-	};
+	handleFormSubmit(formProps){
+	  //call action creator to sign up the user
+	  this.props.createPost(formProps);
+	}
 
-	onSubmit(props) {
-		this.props.createPost(props)
-			.then(() => { 
-				//blog post has been created, navigate user to the index
-				//we navigate by calling this.context.router.push with new path
-				this.context.router.push('/');
-			});
+	renderAlert(){
+	  if (this.props.errorMessage) {
+	    return(
+	      <div className="alert alert-danger">
+	        <strong>Oops</strong> {this.props.errorMessage}
+	      </div>
+	     );
+	  }
 	}
 
 	render() {
 	
 		const { fields: { title, categories, content }, handleSubmit } = this.props;
 
-		//could be written as const  handleSubmit  = this.props.handleSubmit;
-		//could be written as const title = this.props.fields.title;
-		//					  const categories = this.props.fields.categories;
-		//                    const content = this.props.fields.content;
 		return (
-			<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				<h3>Create a New Post</h3>
 				<div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
 					<label>Title</label>
@@ -75,6 +73,10 @@ function validate(values) {
 }
 //connect: first argument is mapStateToProps, 2nd is mapDispatchToProps
 //reduxForm 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
+
+function mapStateToProps(state){
+  return { errorMessage: state.auth.error };
+}
 
 export default reduxForm({
 	form: 'PostsNewForm',

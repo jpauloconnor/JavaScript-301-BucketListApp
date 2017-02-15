@@ -2,7 +2,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var BucketListSchema = new Schema({
-	todo: {
+	title: {
+		type: String,
+		default: ''
+	},
+	categories: {
+		type: String,
+		default: ''
+	},
+	content: {
 		type: String,
 		default: ''
 	},

@@ -9,8 +9,8 @@ exports.addBucketList = function(req, res, next){
       console.log(req.body);
       bucketList.save(function(err) {
         if(err) {
-          return res.status(400).send({
-            message: getErrorMessage(err)
+          return res.status(418).send({
+            message: getErrorMessage("Not authorized, dude.")
           });
         }
         else {

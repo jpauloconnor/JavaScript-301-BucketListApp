@@ -75,24 +75,31 @@ export function authError(error) {
 
 
 export function fetchPosts() {
-
   const request = axios.get(`${ROOT_URL}/posts`);
-
   return {
     type: FETCH_POSTS,
     payload: request
   };
 }
 
+
 export function createPost(props) {
-  const request = axios.post(`${ROOT_URL}/posts`, props);
-
-  return {
-    type: CREATE_POSTS,
-    payload: request
-  };
+  return function(dispatch){
+    axios.post(`${ROOT_URL}/posts`, {
+        headers: { authorization: localStorage.getItem('token') }
+    })
+    .then(response => {
+        dispatch({
+          type: CREATE_POSTS,
+          payload: response.data
+        });
+    });
+  }
 }
+  
 
+
+    
 export function fetchPost(id) {
   const request = axios.get(`${ROOT_URL}/posts/${id}`);
   return {
