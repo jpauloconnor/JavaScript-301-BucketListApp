@@ -8,7 +8,7 @@ import {
 } from '../actions/types';
 
 const rootReducer = combineReducers({
-	form: formReducer,
+	form,
 	posts: PostsReducer,
 	auth: authReducer
 

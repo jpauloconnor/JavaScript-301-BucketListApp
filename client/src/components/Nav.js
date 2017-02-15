@@ -26,7 +26,6 @@ class NavBarHeader extends Component {
 		    </Navbar.Header>
 		    <Nav>
 		      {this.renderLinks()}
-		     
 		    </Nav>
 		  </Navbar>
 		);

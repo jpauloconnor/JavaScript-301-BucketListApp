@@ -24,7 +24,7 @@ export function signinUser({ email, password }){
  		
  				dispatch({ type: AUTH_USER });
  				localStorage.setItem('token', response.data.token);
- 				browserHistory.push('/feature');
+ 				browserHistory.push('/posts');
       	
       	 })
       		.catch(response =>  dispatch(authError("Bad login info")));
