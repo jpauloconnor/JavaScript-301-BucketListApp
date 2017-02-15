@@ -24,7 +24,6 @@ export function signinUser({ email, password }){
       	
       	 })
       		.catch(response =>  dispatch(authError("Bad login info")));
-
 		}
 }
 
@@ -63,56 +62,9 @@ export function fetchMessage() {
 }
 
 
-export function postTodo({ todo }){
-  return function(dispatch){
-    
-    axios.post(`${ROOT_URL}/feature`, { todo })
-
-      .then(response => {
-   
-        dispatch({ 
-          type: AUTH_USER,
-          payload: response.data.todo
-         });
-           console.log(req.body);
-        localStorage.setItem('token', response.data.token);
-        browserHistory.push('/feature');
-        
-         })
-          .catch(response =>  dispatch(authError("Bad login info")));
-
-    }
-}
-
-
-
-
 export function authError(error) {
   return {
     type: AUTH_ERROR,
     payload: error
   };
-}
-
-let nextTodoId = 0
-export const addTodo = (text) => {
-  return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
-  }
-}
-
-export const setVisibilityFilter = (filter) => {
-  return {
-    type: 'SET_VISIBILITY_FILTER',
-    filter
-  }
-}
-
-export const toggleTodo = (id) => {
-  return {
-    type: 'TOGGLE_TODO',
-    id
-  }
 }

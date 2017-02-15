@@ -14,9 +14,7 @@ class Feature extends Component {
   render() {
     return (
       <div>
-      <input type="text" onChange={this.changeNameOne.bind(this)}/>
-
-      {this.props.message}
+        <h1>Hey</h1>
       </div>
     );
   }
