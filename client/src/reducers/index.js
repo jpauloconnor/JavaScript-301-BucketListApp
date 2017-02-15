@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
+import PostsReducer from './reducer-posts';
 import authReducer from './auth_reducer';
 import {
   AUTH_USER,
@@ -7,7 +8,8 @@ import {
 } from '../actions/types';
 
 const rootReducer = combineReducers({
-	form,
+	form: formReducer,
+	posts: PostsReducer,
 	auth: authReducer
 
 });
