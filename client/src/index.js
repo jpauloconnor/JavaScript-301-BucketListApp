@@ -27,7 +27,7 @@ ReactDOM.render(
   				<Route path="signup" component={Signup} />
   				<Route path="feature" component={RequireAuth(Feature)} />
           <Route path="posts/index" component={RequireAuth(PostsIndex)} />
-          <Route path="posts" component={RequireAuth(PostsNew)} />
+          <Route path="posts" component={PostsNew} />
           <Route path="posts/:id" component={RequireAuth(PostsShow)} />
   			</Route>
   		</Router>

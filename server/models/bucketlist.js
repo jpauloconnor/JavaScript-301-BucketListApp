@@ -4,15 +4,15 @@ var Schema = mongoose.Schema;
 var BucketListSchema = new Schema({
 	title: {
 		type: String,
-		default: ''
+		default: 'hello'
 	},
 	categories: {
 		type: String,
-		default: ''
+		default: 'james'
 	},
 	content: {
 		type: String,
-		default: ''
+		default: 'wasup?'
 	},
 	specificUser: {
 		type: Schema.ObjectId,

@@ -85,13 +85,13 @@ export function fetchPosts() {
 
 export function createPost(props) {
   return function(dispatch){
-    axios.post(`${ROOT_URL}/posts`, {
+    axios.post(`${ROOT_URL}/posts`, { props, 
         headers: { authorization: localStorage.getItem('token') }
     })
-    .then(response => {
+    .then(request => {
         dispatch({
           type: CREATE_POSTS,
-          payload: response.data
+          payload: request
         });
     });
   }
