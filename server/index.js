@@ -8,10 +8,11 @@ var mongoose = require('mongoose');
 //DB Connection
 mongoose.connect('mongodb://localhost:bucket/mongoreact');
 
+//Middleware
 app.use(bodyParser.json({ type: '*/*'}));
 router(app);
 
-var port = process.env.PORT || 3000;
+var port = 3000;
 
 var server = http.createServer(app);
 
