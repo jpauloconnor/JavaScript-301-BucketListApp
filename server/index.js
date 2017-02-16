@@ -8,11 +8,12 @@ var mongoose = require('mongoose');
 //DB Connection
 mongoose.connect('mongodb://localhost:bucketlist/bucket');
 
+//Middleware
 app.use(bodyParser.json({ type: '*/*'}));
 router(app);
 
-var port = process.env.PORT || 3000;
-
+//Server
+var port = 3000;
 var server = http.createServer(app);
 
 server.listen(port);
