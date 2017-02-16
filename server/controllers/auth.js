@@ -14,11 +14,13 @@ exports.signup = function(req, res, next){
 			return res.status(418).send("Email is in use");
 		}
 
+		//If user does not exist when signing up, create user.
 		var user = new User({
 			email: email,
 			password: password  
 		});
 
+		//
 		user.save(function(err){
 			if(err) { return next(err); }
 			res.json({success: true});
