@@ -11,7 +11,7 @@ class ComponentsIntro extends React.Component {
                 <li>Allow isolation of each piece.</li>
                 <li>There is a Component Lifecycle, which we'll discuss.</li>
                 <li>All Custom Components should start with capital letter</li>
-                <li>Right now, we're creating instances of components index.js</li>
+                <li>Right now, we're creating instances of components app.js</li>
             </ul> 
             <hr/>
 

@@ -1,6 +1,6 @@
 /* Objectives:
   -explain props
-    -properties are used to pass data around
+    -properties are used to pass data from Parent to Child
   -explain this.props
   -manipulate props
 */
@@ -8,7 +8,7 @@ import React from 'react';
 
 class PropsIntro extends React.Component {
   render() {
-    console.log(this.props);
+
     return (
     	<div>
     		<h3>Props Intro</h3>

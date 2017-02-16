@@ -12,13 +12,15 @@ import ChildComponentsIntro from './5_ChildComponentsIntro';
     			return (
       			<div>
       				<h1>React Intro</h1>
-      				<JSXIntro />
-              <ComponentsIntro />
-              <PropsIntro name="Michael Bolton" title="The Neverending Elevator Music" />
-              <StateIntro />
-              <ChildComponentsIntro />
-
-      			</div>
+      				  <JSXIntro />
+		              <ComponentsIntro />
+		              <PropsIntro name="Michael Bolton" title="The Neverending Elevator Music" />		              
+		     		  <PropsIntro name="Kenny G" title="The Neverending Soprano Sax Music" />		              
+		              <StateIntro />
+		              <StateIntro />
+		              <ChildComponentsIntro />
+		              <ChildComponentsIntro />
+				</div>
     			);
   		}
 	}

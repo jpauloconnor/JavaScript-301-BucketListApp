@@ -7,6 +7,7 @@ class ChildComponentsIntro extends React.Component {
     this.state = {
       joke: "Kenny G"
     }
+    this.changeStateCustomMethod = this.changeStateCustomMethod.bind(this);
   } 
   changeStateCustomMethod(event){
     this.setState({joke: event.target.value})
@@ -17,7 +18,7 @@ class ChildComponentsIntro extends React.Component {
         <h3>Child Components</h3>
         <p>Use the input field to see the state change.</p>
                 <p>{this.state.joke} is the greatest saxophone player of all time.</p>
-                <ChildComponent updateProps={this.changeStateCustomMethod.bind(this)} />
+                <ChildComponent updateProps={this.changeStateCustomMethod} />
                 <hr />
       </div>
     );
@@ -26,5 +27,7 @@ class ChildComponentsIntro extends React.Component {
 
 const ChildComponent = (props) => 
   <input type="text" onChange={props.updateProps}/>
+
+  
 
 export default ChildComponentsIntro;
