@@ -15,8 +15,8 @@ var BucketListSchema = new Schema({
 		default: 'wasup?'
 	},
 	specificUser: {
-		type: Schema.ObjectId,
-		ref: 'User'
+		type: String,
+		default: ''
 	}
 });
 

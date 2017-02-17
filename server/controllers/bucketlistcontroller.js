@@ -3,9 +3,9 @@ var BucketList = require('../models/bucketlist.js');
 exports.addBucketList = function(req, res, next){  
     //Create a new instance of the BucketListSchema
      
-    var title = req.body.title;
-    var categories = req.body.categories;
-    var content = req.body.content;
+    var title = req.body.props.title;
+    var categories = req.body.props.categories;
+    var content = req.body.props.content;
     var specificUser = req.user;
 
     var bucketList = new BucketList({
