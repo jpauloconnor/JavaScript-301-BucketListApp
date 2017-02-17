@@ -6,14 +6,14 @@ import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 import App from './components/app';
 import reducers from './reducers';
-
+import PostsNew from './components/posts/posts-new'
 var createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
 		<Router history={browserHistory}>
   			<Route path="/" component={App}>
-  			
+  				<Route path="/posts" component={PostsNew} />
   			</Route>
   		</Router>
   </Provider>
