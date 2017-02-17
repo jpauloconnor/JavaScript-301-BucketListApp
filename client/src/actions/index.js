@@ -16,6 +16,10 @@ import authReducer from '../reducers/auth_reducer';
 
 const ROOT_URL = 'http://localhost:3000';
 
+var config = {
+   headers: { authorization: localStorage.getItem('token') }
+}
+
 export function signinUser({ email, password }){
 	return function(dispatch){
 		
@@ -85,9 +89,7 @@ export function fetchPosts() {
 
 export function createPost(props) {
   return function(dispatch){
-    axios.post(`${ROOT_URL}/posts`, { props, 
-        headers: { authorization: localStorage.getItem('token') }
-    })
+    axios.post(`${ROOT_URL}/posts`, { props }, config )
     .then(request => {
         dispatch({
           type: CREATE_POSTS,

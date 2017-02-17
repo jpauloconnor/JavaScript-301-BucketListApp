@@ -15,5 +15,5 @@ module.exports = function(app){
 
 	app.post('/signup', Auth.signup);
 	app.post('/signin', requireSignin, Auth.signin);
-	app.post('/posts', requireSignin, BucketList.addBucketList);
+	app.post('/posts', requireAuth, BucketList.addBucketList);
 }
