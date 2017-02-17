@@ -22,6 +22,7 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
 		<Router history={browserHistory}>
   			<Route path="/" component={App}>
+
   			  <Route path="signin" component={Signin} />
  				  <Route path="signout" component={Signout} />
   				<Route path="signup" component={Signup} />
@@ -29,6 +30,7 @@ ReactDOM.render(
           <Route path="posts/index" component={RequireAuth(PostsIndex)} />
           <Route path="posts" component={PostsNew} />
           <Route path="posts/:id" component={RequireAuth(PostsShow)} />
+
   			</Route>
   		</Router>
   </Provider>
