@@ -7,6 +7,8 @@ import Video from './video/video'
     			return (
       			<div>
 	      			<NavBarHeader />
+              {this.props.children}
+
 	      			<Video />
       			</div>
     			);

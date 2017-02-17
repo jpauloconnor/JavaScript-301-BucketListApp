@@ -3,13 +3,14 @@ import {
   FETCH_POSTS,
   CREATE_POSTS,
   FETCH_POST,
-  DELETE_POST
- } from './types';
+  DELETE_POST,
+  ROOT_URL
 
+ } from './types';
 
 export function fetchPosts() {
 
-	const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+	const request = axios.get(`${ROOT_URL}`);
 
 	return {
 		type: FETCH_POSTS,
@@ -18,7 +19,7 @@ export function fetchPosts() {
 }
 
 export function createPost(props) {
-	const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, props);
+	const request = axios.post(`${ROOT_URL}`, props);
 
 	return {
 		type: CREATE_POSTS,
@@ -27,7 +28,7 @@ export function createPost(props) {
 }
 
 export function fetchPost(id) {
-	const request = axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`);
+	const request = axios.get(`${ROOT_URL}`);
 	return {
 		type: FETCH_POST,
 		payload: request
@@ -35,7 +36,7 @@ export function fetchPost(id) {
 }
 
 export function deletePost(id) {
-	const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`)
+	const request = axios.delete(`${ROOT_URL}`)
 	return {
 		type: DELETE_POST,
 		payload: request
