@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { Table } from 'react-bootstrap';
 
 class BucketList extends Component{
   renderList(){
-  	return this.props.bucketlist.map((bucketlist) => {
+  	return this.props.buckelist.map((bucketlist) => {
   		return (
-  			<li key={bucketlist.title, bucketlist.category} className="list-group-item">{bucketlist.title} - {bucketlist.category}</li>
+  			<tr>
+          <td key={bucketlist.title}>
+              {bucketlist.title}
+          </td>
+          <td key={bucketlist.category}>
+              {bucketlist.category}
+          </td>
+          <td key={bucketlist.due}>
+              {bucketlist.due}
+          </td>
+        </tr>
   		);
   	});
   }
@@ -14,12 +24,20 @@ class BucketList extends Component{
 
   render() {
     return (
-      <div>
-        <h1>Bucket List</h1>
-        	<ul className="list-group col-sm-4">
+      
+        	<Table striped bordered condensed hover>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Finish By</th>
+              </tr>
+            </thead>
+            <tbody>
             {this.renderList()}
-        	</ul>
-      </div>
+            </tbody>
+        	</Table>
+      
     );
   }
 }
