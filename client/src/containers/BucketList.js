@@ -4,7 +4,7 @@ import { Table } from 'react-bootstrap';
 
 class BucketList extends Component{
   renderList(){
-  	return this.props.buckelist.map((bucketlist) => {
+  	return this.props.bucketlist.map((bucketlist) => {
   		return (
   			<tr>
           <td key={bucketlist.title}>
