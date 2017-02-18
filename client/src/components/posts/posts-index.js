@@ -27,11 +27,11 @@ class PostsIndex extends Component {
 		return (
 			<div className="container">
 				<div className="row">
-					<div className="col-sm-6 text-xs-left">
+					<div className="col-md-3 text-xs-right">
 						<h3 className="text-xs-left">Posts</h3>
 					</div>
 					
-					<div className="col-sm-6 text-xs-right">
+					<div className="col-md-3 text-xs-right">
 						<Link to="/posts/new" className="btn btn-primary">
 							Add a Post
 						</Link>

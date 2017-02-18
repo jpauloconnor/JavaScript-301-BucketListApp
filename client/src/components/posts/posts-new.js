@@ -51,19 +51,6 @@ class PostsNew extends Component {
 	}
 }
 
-function validate(values) {
-	const errors = {};
-	if (!values.title) {
-		errors.title = "Enter a username";
-	}
-	if (!values.categories) {
-		errors.categories = "Enter categories";
-	}
-	if (!values.content) {
-		errors.content = "Enter content";
-	}
-	return errors;
-}
 //connect: first argument is mapStateToProps, 2nd is mapDispatchToProps
 //reduxForm 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
 
@@ -73,6 +60,5 @@ function mapStateToProps(state){
 
 export default reduxForm({
 	form: 'PostsNewForm',
-	fields: ['title', 'categories', 'content'],
-	validate
+	fields: ['title', 'categories', 'content']
 }, null, { createPost })(PostsNew);
