@@ -6,12 +6,3 @@ export default function() {
 		{name: 'Radiohead' }
 	]
 }
-
-// export default function() {
-// 	return [
-// 		{name: 'Javascript: The Good Parts' },
-// 		{name: 'Harry Potter' },
-// 		{name: 'The Dark Tower' },
-// 		{name: 'Eloquent Ruby' }
-// 	]
-// }
