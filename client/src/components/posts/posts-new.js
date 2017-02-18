@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { createPost } from '../actions/index';
+import { createPost } from '../../actions/index';
 import { Link } from 'react-router';
 
 class PostsNew extends Component {
@@ -26,29 +26,22 @@ class PostsNew extends Component {
 		return (
 			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				<h3>Create a New Post</h3>
-				<div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
+				
+
+				<fieldset className="form-group">
 					<label>Title</label>
 					<input type="text" className="form-control" {...title} />
-					<div className="text-help">
-						{title.touched ? title.error : ''}
-					</div>
-				</div>
+				</fieldset>
 
-				<div className={`form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`}>
-					<label>Categories</label>
+				<fieldset className="form-group">
+					<label>Category</label>
 					<input type="text" className="form-control" {...categories} />
-					<div className="text-help">
-						{categories.touched ? categories.error : ''}
-					</div>
-				</div>
+				</fieldset>
 
-				<div className={`form-group ${content.touched && content.invalid ? 'has-danger' : ''}`}>
+				<fieldset className="form-group">
 					<label>Content</label>
-					<textarea type="text" className="form-control" {...content} />
-					<div className="text-help">
-						{content.touched ? content.error : ''}
-					</div>
-				</div>
+					<textarea type="text" rows="8" className="form-control text" {...content} />
+				</fieldset>
 
 				<button type="submit" className="btn btn-primary">Submit</button>
 				<Link to="/" className="btn btn-danger">Cancel</Link>

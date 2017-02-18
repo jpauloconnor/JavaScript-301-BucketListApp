@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost, deletePost } from '../actions/index';
+import { fetchPost, deletePost } from '../../actions/index';
 import { Link } from 'react-router';
 
 class PostsShow extends Component {

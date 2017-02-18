@@ -49,7 +49,7 @@ export function signupUser({ email, password }) {
           
           //update the token
           localStorage.setItem('token', response.data.token);
-          browserHistory.push('/landing');
+          browserHistory.push('/posts');
       })
       .catch(response => dispatch(authError(response.data.error)));
   }
