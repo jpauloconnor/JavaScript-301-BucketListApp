@@ -28,7 +28,7 @@ ReactDOM.render(
   				<Route path="feature" component={RequireAuth(Feature)} />
           <Route path="posts" component={RequireAuth(PostsApp)} />
           <Route path="posts/new" component={RequireAuth(PostsNew)} />
-          <Route path="posts/:id" component={RequireAuth(PostsShow)} />
+          <Route path="posts" component={RequireAuth(PostsShow)} />
   			</Route>
   		</Router>
   </Provider>

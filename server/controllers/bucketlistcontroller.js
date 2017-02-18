@@ -22,6 +22,60 @@ exports.addBucketList = function(req, res, next){
     });
 }
 
+//Get's all users posts
+exports.getBucketList = function(req, res){
+  
+    BucketList.find(function(err, list){
+      if(err){
+        res.send(err);
+      }else{
+        res.json(list);
+      }
+    });
+}
+
+
+//Get's all users posts
+exports.getBucketList = function(req, res){
+    BucketList.find(function(err, list){
+      if(err){
+        res.send(err);
+      }else{
+        res.json(list);
+      }
+    });
+}
+
+
+
+
+// exports.getBucketListItem = function(req, res, next){
+
+//    var data = req.params.id;
+//    BucketList.findById(_id, function(err, doc)){
+
+
+
+//    });
+//     //     .findOne({
+//     //       where: { id: data }
+//     //     }).then(
+//     //       function getSucces(updateData) {
+//     //         res.json(updateData);
+//     //       },
+
+//     //       function getError(err) {
+//     //         res.send(500, err.message);
+//     //       }
+//     //     );
+//     // });
+
+// }
+
+
+
+
+
 
 
   //   var bucketList = new BucketList(req.body.title);
