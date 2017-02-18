@@ -14,9 +14,12 @@ class BandList extends Component{
 
   render() {
     return (
-    	<ul className="list-group col-sm-4">
-        {this.renderList()}
-    	</ul>
+      <div>
+        <h1>Bands</h1>
+      	<ul className="list-group col-sm-6">
+          {this.renderList()}
+      	</ul>
+      </div>
     );
   }
 }
