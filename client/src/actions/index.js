@@ -79,7 +79,7 @@ export function authError(error) {
 
 
 export function fetchPosts() {
-  const request = axios.get(`${ROOT_URL}/posts`);
+  const request = axios.get(`${ROOT_URL}/posts/:id`, config );
   return {
     type: FETCH_POSTS,
     payload: request
@@ -95,6 +95,7 @@ export function createPost(props) {
           type: CREATE_POSTS,
           payload: request
         });
+      browserHistory.push('/posts/:id');
     });
   }
 }
