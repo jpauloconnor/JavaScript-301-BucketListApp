@@ -9,7 +9,6 @@ import BucketList from '../containers/BucketList';
     			return (
       			<div>
 	      			<NavBarHeader />
-      				
               <BucketList />
       			</div>
     			);
