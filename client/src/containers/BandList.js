@@ -11,7 +11,7 @@ class BandList extends Component{
           key={banditem.name} 
           onClick={() => this.props.selectBand(banditem)}
           className="list-group-item">
-          {banditem.name}>
+          {banditem.name}
         </li>
   		);
   	});
