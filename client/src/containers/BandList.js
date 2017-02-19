@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { selectBand } from '../actions/index';
+import { bindActionCreators } from 'redux';
 
 class BandList extends Component{
   renderList(){
-  	return this.props.bands.map((bands) => {
+  	return this.props.bands.map((banditem) => {
   		return (
-  			<li key={bands.name} className="list-group-item">{bands.name}</li>
+  			<li 
+          key={banditem.name} 
+          onClick={() => this.props.selectBand(banditem)}
+          className="list-group-item">
+          {banditem.name}>
+        </li>
   		);
   	});
   }
@@ -33,6 +39,13 @@ function mapStateToProps(state){
 	};
 }
 
+// Anything returned from this function will end up as props on the BookList container
+// We need this so we can call this.props.selectBook above, and kickstart the
+// action >> reducer >> state change process
+function mapDispatchToProps(dispatch) {
+  // Whenever selectBook is called, the result should be passed to all of our reducers
+  return bindActionCreators({ selectBand: selectBand }, dispatch);
+}
 
 //export 
-export default connect(mapStateToProps)(BandList);
+export default connect(mapStateToProps, mapDispatchToProps)(BandList);
