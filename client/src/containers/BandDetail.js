@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 class BandDetail extends Component {
 	render () {
 		if (!this.props.band) {
-			return <div>Select a book to get started.</div>;
+			return <div>Select a band:</div>;
 		}
 
 		return (
 			<div>
 				<h3>Details for:</h3>
-				<div>Title: {this.props.band.name}</div>
+				<div>{this.props.band.name}</div>
+				<div><img src={this.props.band.image} /></div>
 			</div>
 		);
 	}

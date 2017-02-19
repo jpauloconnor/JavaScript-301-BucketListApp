@@ -39,13 +39,16 @@ function mapStateToProps(state){
 	};
 }
 
-// Anything returned from this function will end up as props on the BookList container
-// We need this so we can call this.props.selectBook above, and kickstart the
-// action >> reducer >> state change process
+// All things returned from this function will end up as props on the BandList container.
+// We need this so we can call the selectBand function above through this.props.selectBand 
+// That will start the action >> reducer >> state change process
 function mapDispatchToProps(dispatch) {
-  // Whenever selectBook is called, the result should be passed to all of our reducers
+  // Whenever selectBand is called, this will pass the result to ALL of our reducers
   return bindActionCreators({ selectBand: selectBand }, dispatch);
 }
 
+
 //export 
+//Just like with the matching of the state to the props, we need to attach
+//the actions to the reducer.
 export default connect(mapStateToProps, mapDispatchToProps)(BandList);
