@@ -19,7 +19,6 @@ class ListItem extends Component {
 					<label>Title</label>
 					<input type="text" className="form-control" {...title} />
 				</fieldset>
-
 				<fieldset className="form-group">
 					<label>Category</label>
 					<input type="text" className="form-control" {...topic} />
@@ -40,14 +39,10 @@ class ListItem extends Component {
 
 	}
 }
-//connect: first argument is mapStateToProps, 2nd is mapDispatchToProps
-//reduxForm 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
 
-function mapStateToProps(state){
-  return { errorMessage: state.auth.error };
-}
 
 export default reduxForm({
-	form: 'PostsNewForm',
+	form: 'ListsNewForm',
 	fields: ['title', 'topic', 'url', 'content']
 }, null, { createPost })(ListItem);
+
