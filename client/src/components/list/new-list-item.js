@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
+import { createPost } from '../../actions/index';
 import { Link } from 'react-router';
 
 class ListItem extends Component {
 	handleFormSubmit(formProps){
 	  //call action creator to sign up the user
-	  console.log(formProps);
+	    this.props.createPost(formProps);
 	}
 
 	render() {
@@ -39,8 +40,14 @@ class ListItem extends Component {
 
 	}
 }
+//connect: first argument is mapStateToProps, 2nd is mapDispatchToProps
+//reduxForm 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
+
+function mapStateToProps(state){
+  return { errorMessage: state.auth.error };
+}
 
 export default reduxForm({
 	form: 'PostsNewForm',
 	fields: ['title', 'topic', 'url', 'content']
-})(ListItem);
+}, null, { createPost })(ListItem);
