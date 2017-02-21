@@ -8,7 +8,6 @@ export default function(state = {}, action) {
 		case AUTH_USER:
 		   return { ...state, authenticated: true };
 		case UNAUTH_USER:
-			console.log("Unauthorized user, dude!!!")
 		   return { ...state, authenticated: false };
 	}
 	return state;
