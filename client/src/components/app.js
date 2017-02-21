@@ -8,8 +8,9 @@ import Video from './video/video'
     			return (
       			<div>
 	      			<NavBarHeader />
+              <Video />
 	      			{this.props.children}
-	      			<Video />
+	      			
       			</div>
     			);
   		}
