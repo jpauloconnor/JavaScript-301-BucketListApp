@@ -13,7 +13,7 @@ class Signin extends Component {
 		    if (this.props.errorMessage) {
 		      return (
 		        <div className="alert alert-danger">
-		          <strong>Oops!</strong> {this.props.errorMessage}
+		          <strong>Sorry partner.</strong> {this.props.errorMessage}
 		        </div>
 		      );
 		    }
@@ -45,5 +45,5 @@ function mapStateToProps(state) {
 export default reduxForm({
 		form: 'signin',
 		fields: ['email', 'password']
-}, null, actions)(Signin);
+}, mapStateToProps, actions)(Signin);
 

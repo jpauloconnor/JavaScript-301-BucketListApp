@@ -13,6 +13,7 @@ export const CREATE_POSTS = 'CREATE_POSTS';
 //const ROOT_URL = 'http://rest.learncode.academy/api/paul';
 const ROOT_URL = 'http://localhost:3000';
 
+
 export function signinUser({ email, password }){
 	return function(dispatch){
 		axios.post(`${ROOT_URL}/signin`, {email, password})
@@ -23,7 +24,7 @@ export function signinUser({ email, password }){
  				browserHistory.push('/newitem');
       	
       	 })
-      		.catch(response =>  dispatch(authError("Bad login info")));
+      		.catch(response =>  dispatch(authError("There was a something wrong with your request.")));
 	}
 }
 
