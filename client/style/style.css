@@ -1,4 +1,6 @@
 
+.error{ color: red; }
+
 .search-bar {
 	margin: 20px;
 	text-align: left;
@@ -25,7 +27,3 @@
 	border: 2px solid orange;
 	border-radius: 4px;
 }
-textarea {
-	height: 200px;
-}
-

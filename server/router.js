@@ -9,14 +9,7 @@ var requireSignin = passport.authenticate('local', {session: false});
 
 module.exports = function(app){
 	
-	app.get('/', requireAuth, function(req, res){
-		res.send({message:'hey'});
-	});
-
 	app.post('/signup', Auth.signup);
 	app.post('/signin', requireSignin, Auth.signin);
-	app.post('/posts', requireAuth, BucketList.addBucketList);
-	//app.get('/posts/:id', requireAuth, BucketList.getItemById);
-	app.get('/posts/index', requireAuth, BucketList.getBucketList);
-
+	app.post('/newitem', requireAuth, BucketList.addBucketList);
 }

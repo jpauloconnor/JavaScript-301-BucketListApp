@@ -3,26 +3,14 @@ import { reduxForm } from 'redux-form';
 import { createPost } from '../../actions/index';
 import { Link } from 'react-router';
 
-class PostsNew extends Component {
+class ListItem extends Component {
 	handleFormSubmit(formProps){
 	  //call action creator to sign up the user
-	  this.props.createPost(formProps);
-	}
-
-	renderAlert(){
-	  if (this.props.errorMessage) {
-	    return(
-	      <div className="alert alert-danger">
-	        <strong>Oops</strong> {this.props.errorMessage}
-	      </div>
-	     );
-	  }
+	    this.props.createPost(formProps);
 	}
 
 	render() {
-	
-		const { fields: { title, categories, content }, handleSubmit } = this.props;
-
+		const { fields: { title, topic, url, content }, handleSubmit } = this.props;
 		return (
 			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				<h3>Create a New Post</h3>
@@ -31,12 +19,14 @@ class PostsNew extends Component {
 					<label>Title</label>
 					<input type="text" className="form-control" {...title} />
 				</fieldset>
-
 				<fieldset className="form-group">
 					<label>Category</label>
-					<input type="text" className="form-control" {...categories} />
+					<input type="text" className="form-control" {...topic} />
 				</fieldset>
-
+				<fieldset className="form-group">
+					<label>URL</label>
+					<input type="text" className="form-control" {...url} />
+				</fieldset>
 				<fieldset className="form-group">
 					<label>Content</label>
 					<textarea type="text" rows="8" className="form-control text" {...content} />
@@ -50,14 +40,9 @@ class PostsNew extends Component {
 	}
 }
 
-//connect: first argument is mapStateToProps, 2nd is mapDispatchToProps
-//reduxForm 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
-
-function mapStateToProps(state){
-  return { errorMessage: state.auth.error };
-}
 
 export default reduxForm({
-	form: 'PostsNewForm',
-	fields: ['title', 'categories', 'content']
-}, null, { createPost })(PostsNew);
+	form: 'ListsNewForm',
+	fields: ['title', 'topic', 'url', 'content']
+}, null, { createPost })(ListItem);
+

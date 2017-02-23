@@ -6,9 +6,13 @@ var BucketListSchema = new Schema({
 		type: String,
 		default: 'hello'
 	},
-	categories: {
+	topic: {
 		type: String,
 		default: 'james'
+	},
+	url: {
+		type: String,
+		default: 'wasup?'
 	},
 	content: {
 		type: String,
