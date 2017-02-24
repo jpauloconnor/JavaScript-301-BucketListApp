@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import PostsReducer from './reducer-posts';
 import { reducer as formReducer } from 'redux-form';
 import authReducer from './auth_reducer';
 

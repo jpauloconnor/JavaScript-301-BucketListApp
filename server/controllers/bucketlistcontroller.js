@@ -1,11 +1,8 @@
 var BucketList = require('../models/bucketlist.js');
 
 exports.addBucketList = function(req, res, next){  
-    //Create a new instance of the BucketListSchema
-     
-     //For Postman use
- //   var title = req.body.title; 
-   
+    //For Postman use
+    //var title = req.body.title;    
     var title = req.body.props.title;
     var topic = req.body.props.topic;
     var url = req.body.props.url;
@@ -25,16 +22,3 @@ exports.addBucketList = function(req, res, next){
         res.json(bucketList);
     });
 }
-
-//Get's all users posts
-// exports.getBucketList = function(req, res){
-  
-//     BucketList.find(function(err, list){
-//       if(err){
-//         res.send(err);
-//       }else{
-//         res.json(list);
-//       }
-//     });
-// }
-
