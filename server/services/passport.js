@@ -24,8 +24,6 @@ var localLogin = new LocalStrategy({usernameField: 'email'}, function(email, pas
 	});
 	//tricky part -> we salted the password, and we need to somehow decode encrypted pw to normal pw.
 
-
-
 	});
 });
 
@@ -46,6 +44,7 @@ var jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
 		}
 	});
 });
+
 
 passport.use(jwtLogin);
 passport.use(localLogin);
