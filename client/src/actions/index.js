@@ -14,7 +14,7 @@ import authReducer from '../reducers/auth_reducer';
 //const ROOT_URL = 'http://rest.learncode.academy/api/paul';
 const ROOT_URL = 'http://localhost:3000';
 
-var config = {
+const config = {
    headers: { authorization: localStorage.getItem('token') }
 }
 
@@ -77,11 +77,22 @@ export function createPost(props) {
 export function fetchPosts() {
   return function(dispatch) {
     axios.get(`${ROOT_URL}/items`, config)
-      .then(request => {
+      .then(response => {
+        console.log("Response", response)
         dispatch({
           type: FETCH_POSTS,
-          payload: request
+          payload: response
         });
       });
   }
 }
+
+// export function fetchPosts() {
+
+//   const request = axios.get(`${ROOT_URL}/items`, config);
+
+//   return {
+//     type: FETCH_POSTS,
+//     payload: request
+//   };
+// }
