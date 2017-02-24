@@ -4,7 +4,8 @@ import {
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
-  CREATE_POSTS
+  CREATE_POSTS,
+  FETCH_POSTS
  } from './types';
 
 import authReducer from '../reducers/auth_reducer';
@@ -68,7 +69,19 @@ export function createPost(props) {
           type: CREATE_POSTS,
           payload: request
         });
-      browserHistory.push('/posts');
+      browserHistory.push('/items');
     });
+  }
+}
+
+export function fetchPosts() {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL}/items`, config)
+      .then(request => {
+        dispatch({
+          type: FETCH_POSTS,
+          payload: request
+        });
+      });
   }
 }
