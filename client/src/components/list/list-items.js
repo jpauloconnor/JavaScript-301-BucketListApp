@@ -21,6 +21,7 @@ class ListItems extends Component {
 	}
 
 	componentWillMount() {
+
 		axios.get(`${ROOT_URL}/items`, config)
 	      .then((response) => {
 	      	const posts = response.data;

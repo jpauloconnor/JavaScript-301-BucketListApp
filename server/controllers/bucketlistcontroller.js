@@ -38,15 +38,51 @@ exports.fetchBucketLists = function(req, res) {
     }
   );
 }
-//Get's all users posts
-// exports.getBucketList = function(req, res){
-  
-//     BucketList.find(function(err, list){
-//       if(err){
-//         res.send(err);
-//       }else{
-//         res.json(list);
-//       }
-//     });
-// }
 
+exports.fetchBucketList = function(req, res) {
+  var specificBucketList = req.params.id;
+  BucketList.findOne({_id: specificBucketList})
+    .then(
+      function fetchSuccess(data) {
+        res.json(data);
+      },
+      function fetchError(err) {
+        res.send(500, err.message);
+      }
+    );
+}
+
+exports.deleteBucketList = function(req, res) {
+  var specificBucketList = req.params.id;
+  BucketList.remove({_id: specificBucketList})
+    .then(
+      function deleteSuccess(data) {
+        res.json(data);
+      },
+      function deleteError(err) {
+        res.send(500, err.message);
+      }
+    );
+}
+
+exports.updateBucketList = function(req, res) {
+  var specificBucketList = req.params.id;
+  BucketList.findById(specificBucketList, function(err, bucketlistUpdate) {
+    if (err) {
+      res.status(500, err.message)
+    } else {
+        
+      bucketlistUpdate.title = req.body.title;
+      bucketlistUpdate.topic = req.body.topic;
+      bucketlistUpdate.url = req.body.url;
+      bucketlistUpdate.content = req.body.content;  
+
+      bucketlistUpdate.save(function(err, bucketlist){
+        if (err) {
+          res.status(500, err.message)
+        }
+        res.send(bucketlist);
+      });  
+    };
+  });
+}

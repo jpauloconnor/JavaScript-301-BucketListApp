@@ -77,7 +77,7 @@ export function createPost(props) {
 export function fetchPosts() {
   return function(dispatch) {
     axios.get(`${ROOT_URL}/items`, config)
-      .then(response => {
+      .then( (response) => {
         console.log("Response", response)
         dispatch({
           type: FETCH_POSTS,
