@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import reduxThunk from 'redux-thunk';
-
 import App from './components/app';
 import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
@@ -12,6 +11,7 @@ import Signup from './components/auth/signup';
 import ListItem from './components/list/new-list-item';
 import ListShow from './components/list/list-items';
 import RequireAuth from './components/auth/require_auth';
+import promise from 'redux-promise';
 import reducers from './reducers';
 import { AUTH_USER } from './actions/types';
 
@@ -26,11 +26,11 @@ if (token) {
   store.dispatch({ type: AUTH_USER });
 }
 
-
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
 		<Router history={browserHistory}>
   			<Route path="/" component={App}>
+            <Route path="items" component={RequireAuth(ListShow)} />
   			  	<Route path="signin" component={Signin} />
     				<Route path="signout" component={Signout} />
   	   			<Route path="signup" component={Signup} />

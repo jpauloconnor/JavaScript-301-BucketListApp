@@ -7,7 +7,7 @@ exports.addBucketList = function(req, res, next){
     var topic = req.body.props.topic;
     var url = req.body.props.url;
     var content = req.body.props.content;
-    var specificUser = req.user;
+    var specificUser = req.user._id;
 
     var bucketList = new BucketList({
       title: title,
@@ -23,7 +23,6 @@ exports.addBucketList = function(req, res, next){
     });
 }
 
-
 exports.fetchBucketLists = function(req, res) {
   var specificUser = req.user._id;
   BucketList.find({specificUser: specificUser})
@@ -38,5 +37,49 @@ exports.fetchBucketLists = function(req, res) {
 }
 
 
+exports.fetchBucketList = function(req, res) {
+  var specificBucketList = req.params.id;
+  BucketList.findOne({_id: specificBucketList})
+    .then(
+      function fetchSuccess(data) {
+        res.json(data);
+      },
+      function fetchError(err) {
+        res.send(500, err.message);
+      }
+    );
+}
 
+exports.deleteBucketList = function(req, res) {
+  var specificBucketList = req.params.id;
+  BucketList.remove({_id: specificBucketList})
+    .then(
+      function deleteSuccess(data) {
+        res.json(data);
+      },
+      function deleteError(err) {
+        res.send(500, err.message);
+      }
+    );
+}
 
+exports.updateBucketList = function(req, res) {
+  var specificBucketList = req.params.id;
+  BucketList.findById(specificBucketList, function(err, bucketlistUpdate) {
+    if (err) {
+      res.status(500, err.message)
+    } else {
+        
+      bucketlistUpdate.title = req.body.title;
+      bucketlistUpdate.topic = req.body.topic;
+      bucketlistUpdate.url = req.body.url;
+      bucketlistUpdate.content = req.body.content;  
+      bucketlistUpdate.save(function(err, bucketlist){
+        if (err) {
+          res.status(500, err.message)
+        }
+        res.send(bucketlist);
+      });  
+    };
+  });
+}

@@ -4,16 +4,17 @@ import {
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
-  CREATE_POSTS
+  CREATE_POSTS,
+  FETCH_POSTS
  } from './types';
 
 import authReducer from '../reducers/auth_reducer';
 
 const ROOT_URL = 'http://localhost:3000';
 
-    var config = {
-       headers: { authorization: localStorage.getItem('token') }
-    }
+const config = {
+   headers: { authorization: localStorage.getItem('token') }
+}
 
     export function signinUser({ email, password }){
     	return function(dispatch){

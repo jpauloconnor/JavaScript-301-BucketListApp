@@ -7,7 +7,6 @@ const rootReducer = combineReducers({
 		form: formReducer,
 		auth: authReducer,
 		posts: postsReducer
-
 });
 
 export default rootReducer;
