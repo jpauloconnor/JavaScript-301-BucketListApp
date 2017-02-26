@@ -59,7 +59,7 @@ class ListItems extends Component {
 			);
 		} else {
 			return (
-				<div className="container">
+				<div className="col-md-4">
 					<div className="row">
 						<div className="col-sm-6 text-xs-left">
 							<h3 className="text-xs-left">Lists</h3>
