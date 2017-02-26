@@ -63,6 +63,21 @@ const ROOT_URL = 'http://localhost:3000';
       }
     }
 
+
+    export function fetchPosts() {
+      return function(dispatch) {
+        axios.get(`${ROOT_URL}/items`, config)
+          .then( (response) => {
+            console.log("Response", response)
+            dispatch({
+              type: FETCH_POSTS,
+              payload: response
+            });
+          });
+      }
+    }
+
+
 export function authError(error) {
   return {
     type: AUTH_ERROR,
