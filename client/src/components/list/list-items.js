@@ -42,7 +42,7 @@ class ListItems extends Component {
 
 			return (
 				<li className="list-group-item" key={post._id}>
-					<Link to={"lists/" + post._id}>
+					<Link to={"items/" + post._id}>
 						<span className="pull-xs-left">{post.topic}</span>
 						<span className="pull-xs-right"><strong>{post.title}</strong></span>
 					</Link>
@@ -52,35 +52,28 @@ class ListItems extends Component {
 	}
 
 	render() {
-		if (this.state.posts == 0) {
-			return (
 
-				<div><h3>Still Loading...</h3></div>
-			);
-		} else {
-			return (
-				<div className="col-md-4">
-					<div className="row">
-						<div className="col-sm-6 text-xs-left">
-							<h3 className="text-xs-left">Lists</h3>
-						</div>
-
-						<div className="col-sm-6 text-xs-right">
-							<Link to="/newitem" className="btn btn-primary">
-								Add a List Item
-							</Link>
-						</div>
+		return (
+			<div className="col-md-4">
+				<div className="row">
+					<div className="col-sm-6 text-xs-left">
+						<h3 className="text-xs-left">Lists</h3>
 					</div>
 
-					<div id="space"></div>
-
-					<ul className="list-group">
-						{this.renderItems()}
-					</ul>
+					<div className="col-sm-6 text-xs-right">
+						<Link to="/newitem" className="btn btn-primary">
+							Add a List Item
+						</Link>
+					</div>
 				</div>
-			);
-		}
-	
+
+				<div id="space"></div>
+
+				<ul className="list-group">
+					{this.renderItems()}
+				</ul>
+			</div>
+		);
 	}
 }
 

@@ -5,7 +5,9 @@ import {
   UNAUTH_USER,
   AUTH_ERROR,
   CREATE_POSTS,
-  FETCH_POSTS
+  FETCH_POSTS,
+  FETCH_POST,
+  DELETE_POST
  } from './types';
 
 import authReducer from '../reducers/auth_reducer';
@@ -26,7 +28,7 @@ export function signinUser({ email, password }){
  		
  				dispatch({ type: AUTH_USER });
  				localStorage.setItem('token', response.data.token);
- 				browserHistory.push('/items');
+ 				browserHistory.push('/newitem');
       	
       	 })
       		.catch(response =>  dispatch(authError("There was a something wrong with your request.")));
@@ -87,12 +89,30 @@ export function fetchPosts() {
   }
 }
 
-// export function fetchPosts() {
+export function fetchPost(id) {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL}/items/${id}`, config)
+      .then( (response) => {
+        console.log("Response", response)
+        dispatch({
+          type: FETCH_POST,
+          payload: response
+        });
+      });
+  }
+}
 
-//   const request = axios.get(`${ROOT_URL}/items`, config);
+export function deletePost(id) {
+  return function(dispatch) {
+    axios.delete(`${ROOT_URL}/items/${id}`, config)
+      .then( (response) => {
+        dispatch({
+          type: DELETE_POST,
+          payload: response
+        });
+        browserHistory.push('/items');
+      });
+  }
+}
+  
 
-//   return {
-//     type: FETCH_POSTS,
-//     payload: request
-//   };
-// }
