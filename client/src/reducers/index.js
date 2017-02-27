@@ -5,7 +5,8 @@ import authReducer from './auth_reducer';
 
 const rootReducer = combineReducers({
 		form: formReducer,
-		auth: authReducer
+		auth: authReducer,
+		posts: PostsReducer
 });
 
 export default rootReducer;
