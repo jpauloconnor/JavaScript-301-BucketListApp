@@ -9,6 +9,7 @@ const ROOT_URL = 'http://localhost:3000';
 const config = {
    headers: { authorization: localStorage.getItem('token') }
 }
+
 class ListShow extends Component {
 	constructor(props) {
 		super(props);
@@ -35,6 +36,10 @@ class ListShow extends Component {
 		this.props.deletePost(this.props.params.id);
 	}
 
+	getPath() {
+		return '/updateitems/' + path;
+	}
+
 	render() {
 		const post = this.state.post;
 				if (!post) {
@@ -56,6 +61,8 @@ class ListShow extends Component {
 				<p>{post.content}</p>
 				<Link to="/items" className="btn btn-primary">Back to Post List</Link>
 				
+				<Link to={`/updateitem/${this.props.params.id}`} className="btn btn-info">Update List</Link>
+
 				<button className="btn btn-danger"
 					onClick={this.onDeleteClick.bind(this)}>
 					Delete Post

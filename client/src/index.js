@@ -13,17 +13,14 @@ import RequireAuth from './components/auth/require_auth'
 import ListItem from './components/list/new-list-item';
 import ListsShow from './components/list/list-items';
 import ListShow from './components/list/list-show';
+import UpdateList from './components/list/update-list-item.js'
 import promise from 'redux-promise';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(promise, reduxThunk)(createStore);
 
 const store = createStoreWithMiddleware(reducers);
-console.log(store);
-const token = localStorage.getItem('token');
-if (token) {
-  store.dispatch({type: AUTH_USER})
-}
+
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
 		<Router history={browserHistory}>
@@ -31,7 +28,7 @@ ReactDOM.render(
             <Route path="items" component={RequireAuth(ListsShow)}>
             </Route>
             <Route path="items/:id" component={RequireAuth(ListShow)} />
-
+            <Route path="updateitem/:id" component={RequireAuth(UpdateList)} />
   			  	<Route path="signin" component={Signin} />
     				<Route path="signout" component={Signout} />
   	   			<Route path="signup" component={Signup} />
