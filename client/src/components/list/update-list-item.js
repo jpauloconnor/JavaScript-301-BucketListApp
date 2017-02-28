@@ -36,8 +36,12 @@ class UpdateList extends Component {
 
 	}
 
+	componentWillReceiveProps(nextProps) {
+		this.setState({ post: nextProps })
+	}
+
 	handleChange(event) {
-		this.setState({value: event.target.value})
+		this.setState({title: event.target.value})
 	}
 
 	handleFormSubmit(formProps){
@@ -53,7 +57,7 @@ class UpdateList extends Component {
 				
 				<fieldset className="form-group">
 					<label>Title</label>
-					<input type="text" className="form-control" {...title} value={this.state.post.title} onChange={this.handleChange} />
+					<input type="text" className="form-control" {...title} value={this.state.post.title} onBlur={this.handleChange} />
 				</fieldset>
 				<fieldset className="form-group">
 					<label>Category</label>
@@ -69,7 +73,7 @@ class UpdateList extends Component {
 				</fieldset>
 
 				<button type="submit" className="btn btn-primary">Save</button>
-				<Link to="/" className="btn btn-danger">Cancel</Link>
+				<Link to="/items" className="btn btn-danger">Cancel</Link>
 			</form>
 		);
 
