@@ -37,12 +37,19 @@ class UpdateList extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({ post: nextProps })
+		if (nextProps == undefined) {
+			e.preventDefault();
+		} else {
+			this.setState({ 
+				post: [...nextProps]
+		 	});
+		}
+
 	}
 
-	handleChange(event) {
-		this.setState({title: event.target.value})
-	}
+	// handleChange(event) {
+	// 	this.setState({title: event.target.value})
+	// }
 
 	handleFormSubmit(formProps){
 		//TODO - make this an update Post 
@@ -57,19 +64,19 @@ class UpdateList extends Component {
 				
 				<fieldset className="form-group">
 					<label>Title</label>
-					<input type="text" className="form-control" {...title} value={this.state.post.title} onBlur={this.handleChange} />
+					<input type="text" className="form-control" {...title} value={this.state.post.title}  />
 				</fieldset>
 				<fieldset className="form-group">
 					<label>Category</label>
-					<input type="text" className="form-control" {...topic} />
+					<input type="text" className="form-control" {...topic} value={this.state.post.topic} />
 				</fieldset>
 				<fieldset className="form-group">
 					<label>URL</label>
-					<input type="text" className="form-control" {...url} />
+					<input type="text" className="form-control" {...url} value={this.state.post.url} />
 				</fieldset>
 				<fieldset className="form-group">
 					<label>Content</label>
-					<textarea type="text" rows="8" className="form-control text" {...content} />
+					<textarea type="text" rows="8" className="form-control text" {...content} value={this.state.post.content} />
 				</fieldset>
 
 				<button type="submit" className="btn btn-primary">Save</button>
