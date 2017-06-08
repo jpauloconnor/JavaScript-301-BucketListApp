@@ -10,23 +10,9 @@ const config = {
    headers: { authorization: localStorage.getItem('token') }
 }
 class ListShow extends Component {
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			post : {}
-		}
-	}
 	componentWillMount() {
-		//todo - add the axios call here
-		//this.props.fetchPost(this.props.params.id);
-		axios.get(ROOT_URL + '/items/' + this.props.params.id, config)
-	      .then( (response) => {
-	        console.log("Response", response)
-	      	this.setState({
-	      		post: response.data
-	      	})
-	      });
+		this.props.fetchPost(this.props.params.id);
 	}
 
 	onDeleteClick() {
@@ -35,7 +21,7 @@ class ListShow extends Component {
 	}
 
 	render() {
-		const post = this.state.post;
+		const post = this.props.post;
 				if (!post) {
 			return (
 				<div>
@@ -54,7 +40,7 @@ class ListShow extends Component {
 				<div id="space"></div>
 				<p>{post.content}</p>
 				<Link to="/items" className="btn btn-primary">Back to Post List</Link>
-				
+				<Link to={`/updateitem/${this.props.params.id}`} className="btn btn-info">Update List</Link>
 				<button className="btn btn-danger"
 					onClick={this.onDeleteClick.bind(this)}>
 					Delete Post
